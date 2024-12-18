@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Registration & Appointment Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+        form {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input.error, select.error, textarea.error {
+            border-color: red;
+            background-color: #ffdddd;
+        }
+        .form-group.inline-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        .form-group.inline-group label, .form-group.inline-group input, .form-group.inline-group select {
+            width: 48%;
+        }
+        .checkbox-group, .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .checkbox-group label, .radio-group label {
+            width: 48%;
+        }
+        .form-group .add-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group .add-btn:hover {
+            background-color: #0056b3;
+        }
+        .submit-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .submit-btn:disabled {
+            background-color: #aaa;
+        }
+        .error-message {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <form id="patientForm">
+        <h2>Patient Registration & Appointment</h2>
+        
+        <!-- Patient Information -->
+        <div class="form-group">
+            <label for="fullName">Full Name *</label>
+            <input type="text" id="fullName" required>
+            <span class="error-message" id="nameError"></span>
+        </div>
+        
+        <div class="form-group inline-group">
+            <label for="dob">Date of Birth *</label>
+            <input type="date" id="dob" required>
+            <span class="error-message" id="dobError"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Gender *</label>
+            <div class="radio-group">
+                <label><input type="radio" name="gender" value="Male" required> Male</label>
+                <label><input type="radio" name="gender" value="Female"> Female</label>
+                <label><input type="radio" name="gender" value="Other"> Other</label>
+            </div>
+            <span class="error-message" id="genderError"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="contactNumber">Contact Number *</label>
+            <input type="tel" id="contactNumber" pattern="[0-9]{10}" required>
+            <span class="error-message" id="contactError"></span>
+        </div>
+
+        <!-- Address Details -->
+        <div class="form-group">
+            <label for="address1">Address Line 1 *</label>
+            <input type="text" id="address1" required>
+        </div>
+
+        <div class="form-group">
+            <label for="address2">Address Line 2</label>
+            <input type="text" id="address2">
+        </div>
+
+        <div class="form-group inline-group">
+            <label for="city">City *</label>
+            <input type="text" id="city" required>
+        </div>
+
+        <div class="form-group inline-group">
+            <label for="state">State *</label>
+            <select id="state" required>
+                <option value="">-- Select State --</option>
+                <option value="California">California</option>
+                <option value="Texas">Texas</option>
+                <option value="New York">New York</option>
+                <!-- Add other states here -->
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="zipCode">Zip Code *</label>
+            <input type="text" id="zipCode" pattern="[0-9]{5}" required>
+            <span class="error-message" id="zipError"></span>
+        </div>
+
+        <!-- Medical History -->
+        <div class="form-group">
+            <label>Pre-existing Conditions</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="conditions" value="Diabetes"> Diabetes</label>
+                <label><input type="checkbox" name="conditions" value="Hypertension"> Hypertension</label>
+                <label><input type="checkbox" name="conditions" value="Heart Disease"> Heart Disease</label>
+                <!-- Add more checkboxes as needed -->
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="allergies">Allergies</label>
+            <textarea id="allergies" rows="3" placeholder="List any allergies"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="bloodType">Blood Type *</label>
+            <select id="bloodType" required>
+                <option value="">-- Select Blood Type --</option>
+                <option value="A+">A+</option>
+                <option value="B+">B+</option>
+                <option value="O+">O+</option>
+                <option value="AB+">AB+</option>
+                <option value="A-">A-</option>
+                <option value="B-">B-</option>
+                <option value="O-">O-</option>
+                <option value="AB-">AB-</option>
+            </select>
+        </div>
+
+        <!-- Emergency Contact -->
+        <div class="form-group">
+            <label for="emergencyContactName">Emergency Contact Name *</label>
+            <input type="text" id="emergencyContactName" required>
+        </div>
+
+        <div class="form-group">
+            <label for="relationship">Relationship *</label>
+            <input type="text" id="relationship" required>
+        </div>
+
+        <div class="form-group">
+            <label for="emergencyContactNumber">Emergency Contact Number *</label>
+            <input type="tel" id="emergencyContactNumber" pattern="[0-9]{10}" required>
+            <span class="error-message" id="emergencyContactError"></span>
+        </div>
+
+        <!-- Dynamic Field Addition for Additional Emergency Contacts -->
+        <div class="form-group" id="additionalContacts"></div>
+        <button type="button" class="add-btn" onclick="addEmergencyContact()">Add Another Emergency Contact</button>
+
+        <!-- Appointment Details -->
+        <div class="form-group">
+            <label for="doctor">Select Doctor *</label>
+            <select id="doctor" required>
+                <option value="">-- Select Doctor --</option>
+                <option value="Dr. Smith">Dr. Smith</option>
+                <option value="Dr. Johnson">Dr. Johnson</option>
+                <option value="Dr. Williams">Dr. Williams</option>
+                <!-- Add more doctors dynamically -->
+            </select>
+        </div>
+
+        <div class="form-group inline-group">
+            <label for="appointmentDate">Appointment Date *</label>
+            <input type="date" id="appointmentDate" required>
+        </div>
+
+        <div class="form-group inline-group">
+            <label for="appointmentTime">Appointment Time *</label>
+            <input type="time" id="appointmentTime" required>
+        </div>
+
+        <div class="form-group">
+            <label for="appointmentReason">Reason for Appointment *</label>
+            <textarea id="appointmentReason" rows="3" maxlength="200" placeholder="Provide reason for appointment" required></textarea>
+            <span class="error-message" id="reasonError"></span>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn" disabled>Register and Schedule Appointment</button>
+    </form>
+
+    <script>
+        const form = document.getElementById('patientForm');
+        const submitBtn = document.querySelector('.submit-btn');
+
+        // Enable submit button when form is valid
+        form.addEventListener('input', () => {
+            submitBtn.disabled = !form.checkValidity();
+        });
+
+        // Client-side validation
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('fullName').value;
+            const phone = document.getElementById('contactNumber').value;
+
+            if (!/^[a-zA-Z\s]+$/.test(name)) {
+                document.getElementById('nameError').textContent = 'Please enter a valid name (only letters).';
+                return;
+            }
+
+            if (!/^\d{10}$/.test(phone)) {
+                document.getElementById('contactError').textContent = 'Please enter a valid 10-digit phone number.';
+                return;
+            }
+
+            alert('Form submitted successfully!');
+        });
+
+        // Dynamic Emergency Contact Addition
+        function addEmergencyContact() {
+            const container = document.getElementById('additionalContacts');
+            const newContact = document.createElement('div');
+            newContact.classList.add('form-group');
+            newContact.innerHTML = `
+                <label for="additionalContact">Additional Emergency Contact</label>
+                <input type="text" placeholder="Name" required>
+                <input type="tel" placeholder="Contact Number" pattern="[0-9]{10}" required>
+                <button type="button" onclick="this.parentElement.remove()">Remove</button>
+            `;
+            container.appendChild(newContact);
+        }
+    </script>
+</body>
+</html>

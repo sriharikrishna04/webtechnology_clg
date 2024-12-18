@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css"
+</head>
+<div class="body">
+<body>
+    <form>
+    <img src="week2\web tech\img4.jpg" height="100" width="100">
+    <h1 class="h1">REGISTRATION FROM</h1>
+    <hr>
+    <h3 class="h2">Basic Details Section</h3>
+    <label class="i1">Name:</label><br><input type="text" class="name" placeholder="Enter your name" pattern="[A-Za-z]{3,}" title="More than 3 letters is required" required> <br><br>
+    <label class="i2">Age:</label><br><input type="number" placeholder="Enter your age" pattern="[0-9]" title="Age in digits" required><br><br>
+    <label class="i3">Gender:</label>
+    <div class="radio-group">
+        <div class="radio-item">
+            <input type="radio" name="gender" value="male" class="g1"> <label>Male</label>
+        </div>
+        <div class="radio-item">
+            <input type="radio" name="gender" value="female" class="g2"> <label>Female</label>
+        </div>
+        <div class="radio-item">
+            <input type="radio" name="gender" value="others" class="g3"> <label>Others</label>
+        </div>
+    </div>    
+    <label class="i4">DOB:</label><br><input type="date" title="DOB required" required><br><br><br>
+    <hr>
+    <h3 class="h3">Contact information</h3>
+    <label class="i5">Email:</label><br><input type="email" placeholder="Enter your email id" title="Invalid email" required><br><br>
+    <label class="i6">Mobile Number:</label><br><input type="tel" pattern="[0-9]{10}" title="Enter a 10 digit number" placeholder="Enter your mobile number"  required><br><br>
+    <hr>
+    
+    <h3 class="h4">Academic details</h3>
+    <label class="i7">High school Marks:</label><br><input type="number" placeholder="Enter your marks" pattern="[0-100]" title="Enter valid marks from 0-100" required><br><br>
+    <label class="i8">Preferred Course:</label><select class="c1" required>
+                                        <option>----Select the Department----</option>
+                                        <option>CSE</option>
+                                        <option>IT</option>
+                                        <option>CIVIL</option>
+                                        <option>EEE</option>
+                                        <option>ECE</option>
+                                        <option>MECHANICAL</option>
+                                        <option>BIOTECH</option>
+                                        <option>FASHION TECH</option>
+                                        <option>PRODUCTION</option>
+                                        <option>METTELURGY</option>
+                                    </select><br><br>
+    <label class="i9">Preferred Tenure:</label><select class="c2" required>
+                                        <option>---Select the tenure---</option>
+                                        <option>3 years</option>
+                                        <option>4 years</option>
+                                        <option>5 years</option>
+                                    </select><br><br>
+    
+    <hr>
+    <h3 class="h5">Additional Information</h3>
+    <label class="i10">Address:</label><br><textarea width="40" height="40" pattern="[A-Za-z0-9,]" title="Enter the address" required></textarea><br><br>
+    <label class="i11">Hobbies:</label><br>
+    <div class="hobbies-group">
+        <div class="hobby-item">
+            <input type="checkbox" name="hobbies" value="sports" class="sports"> 
+            <label for="sports" class="s">Sports</label>
+        </div>
+        <div class="hobby-item">
+            <input type="checkbox" name="hobbies" value="reading" class="reading">
+            <label for="reading" class="r">Reading</label>
+        </div>
+        <div class="hobby-item">
+            <input type="checkbox" name="hobbies" value="coding" class="coding">
+            <label for="coding" class="c">Coding</label>
+        </div>
+    </div>    
+    <label class="i12">Photo:</label><br><input type="file" class="p" title="Put your photo" required><br><br>
+    <br>
+    <input type="reset" class="reset" value="Reset">
+    <input type="submit" class="button" value="Submit">
+</form>
+
+<script>
+     document.querySelector('.button').addEventListener('click',function(){
+            var name=document.querySelector('.name').value;
+            var course=document.querySelector('.c1').value;
+            var tenure=document.querySelector('.c2').value;
+            var photo=document.querySelector('.p').value
+            alert('Welcome '+name+' You have chosen '+course+' for a duration of '+tenure);
+        });
+</script>
+    
+</body>
+</div>
+</html>

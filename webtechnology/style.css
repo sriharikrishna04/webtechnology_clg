@@ -1,0 +1,188 @@
+.body {
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    border-width: 5px;
+    width: 700px;
+    height: 1400px;
+    margin: 20px auto; 
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 10);
+    background-color: bisque;
+}
+img{
+    margin-right: 500px;;
+    border-radius: 50%;
+    border-color: black;
+}
+.h1{
+    color: crimson;
+    margin-top:-60px;
+    margin-left:100px;
+}
+.h2{
+    color:darkmagenta;
+}
+.h3{
+    color:darkmagenta;
+}
+.h4{
+    color:darkmagenta;
+}
+.h5{
+    color:darkmagenta;
+}
+input{
+    width: 500px;
+    height: 30px;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: black;
+}
+.i1{
+    font-size: medium;
+    font-weight: bolder;
+    margin:0 460px 0 0;
+}
+.i2{
+    font-size: medium;
+    font-weight: bolder;
+    margin:0 470px 0 0;
+}
+.i3 {
+    font-size: medium;
+    font-weight: bolder;
+    margin: 0 450px 0 0;
+}
+
+.radio-group {
+    margin-top: 10px;
+}
+
+.radio-item {
+    margin-bottom: 10px; 
+}
+
+.radio-item input[type="radio"] {
+    margin-right: 10px; 
+    height: 16px;
+    width: 16px;
+}
+.radio-item label {
+    margin-right: 400px; 
+    font-weight: normal;
+}
+.i4{
+    font-size: medium;
+    font-weight: bolder;
+    margin:0 460px 0 0;
+}
+.i5{
+    font-size: medium;
+    font-weight: bolder;
+    margin:0 460px 0 0;
+}
+
+.i6{
+    font-size: medium;
+    font-weight: bolder;
+    margin:0 390px 0 0; 
+}
+.i7{
+    font-size: medium;
+    font-weight: bolder;
+    margin:0 370px 0 0; 
+}
+.i8{
+    font-size: medium;
+    font-weight: bolder;
+}
+.c1{
+    margin: 0 180px 0 0;
+    width: 200px;
+    height:30px;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: black;
+}
+.i9{
+    font-size: medium;
+    font-weight: bolder;
+}
+.c2{
+    margin: 0 200px 0 0;
+    width:180px;
+    height: 30px;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: black;
+}
+.i10{
+    font-size: medium;
+    font-weight: bolder;
+    margin:0 450px 0 0;
+}
+textarea{
+    margin:-400px 200px 0 0;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: black;
+}
+.i11 {
+    font-size: medium;
+    font-weight: bolder;
+    margin:0 450px 0 0;
+}
+
+.hobbies-group {
+    margin-top: 10px;
+}
+
+.hobby-item {
+    margin-bottom: 10px; 
+}
+
+.hobby-item input[type="checkbox"] {
+    margin-right: 5px; 
+    width: 20px;
+    height: 20px;
+}
+
+.hobby-item label {
+    margin-right: 400px;
+    font-weight: normal;
+}
+.i12{
+    font-size: medium;
+    font-weight: bolder;
+    margin:0 470px 0 0;
+}
+.button{
+    margin: 0 0 0 400px;
+    width:100px;
+    height:50px;
+    border-radius: 10px;
+    color:white;
+    font-weight: bolder;
+    font-size: large;
+    background-color: blue;
+    border-color: black;
+    border-width: 3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 10);
+}
+.reset{
+    margin: 0 0 0 0px;
+    width:100px;
+    height:50px;
+    border-radius: 10px;
+    color:white;
+    font-weight: bolder;
+    font-size: large;
+    background-color: blue;
+    border-color: black;
+    border-width: 3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 10);
+}
+.reset:hover,.button:hover{
+    background-color: red;
+}

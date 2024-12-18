@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passport Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            position: relative;
+        }
+
+        h2 {
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .top-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .app-no {
+            color: red;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+
+        .passport-photo {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 120px;
+            height: 120px;
+            background-image: url('avatar.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .form-group {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        label {
+            flex: 1;
+            margin-right: 20px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="file"],
+        input[type="password"],
+        select {
+            flex: 2;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .media {
+            margin-top: 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 class="heading">Passport Registration Form</h2>
+
+    <!-- Top section containing the Application Number and Avatar photo -->
+    <div class="top-section">
+        <div class="app-no">Application No: 132</div>
+        <div class="passport-photo"></div>
+    </div>
+
+    <form id="passportForm" enctype="multipart/form-data">
+        <!-- Input fields below the avatar photo -->
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName">
+        </div>
+        <div class="form-group">
+            <label for="middleName">Middle Name:</label>
+            <input type="text" id="middleName" name="middleName">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName">
+        </div>
+        <div class="form-group">
+            <label for="mobileNumber">Mobile Number:</label>
+            <input type="text" id="mobileNumber" name="mobileNumber">
+        </div>
+        <div class="form-group">
+            <label for="aadhaarNumber">Aadhaar Number:</label>
+            <input type="text" id="aadhaarNumber" name="aadhaarNumber">
+        </div>
+        <div class="form-group">
+            <label for="panNumber">PAN Card Number:</label>
+            <input type="text" id="panNumber" name="panNumber">
+        </div>
+
+        <!-- File upload section -->
+        <div class="media">
+            <label>Passport Photo:</label>
+            <input type="file" id="passportPhoto" name="passportPhoto" accept="image/jpeg, image/png"><br><br>
+
+            <label>Aadhaar Card:</label>
+            <input type="file" id="aadhaarCard" name="aadhaarCard" accept="image/jpeg, image/png"><br><br>
+
+            <label>Candidate's Voter ID:</label>
+            <input type="file" id="voterId" name="voterId" accept="image/jpeg, image/png"><br><br>
+
+            <label>Electricity Bill:</label>
+            <input type="file" id="electricityBill" name="electricityBill" accept="image/jpeg, image/png"><br><br>
+
+            <label>Degree/10th/12th Mark Sheet:</label>
+            <input type="file" id="marksheet" name="marksheet" accept="image/jpeg, image/png"><br><br>
+        </div>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+<script>
+    document.getElementById('passportForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission until validation is done
+
+        // Get form field values
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+        const mobileNumber = document.getElementById('mobileNumber').value.trim();
+        const aadhaarNumber = document.getElementById('aadhaarNumber').value.trim();
+        const passportPhoto = document.getElementById('passportPhoto').files[0];
+        const aadhaarCard = document.getElementById('aadhaarCard').files[0];
+
+        // Define the error message variable
+        let errorMessage = '';
+
+        // Validation for empty fields
+        if (!firstName || !lastName || !mobileNumber || !aadhaarNumber) {
+            errorMessage += 'None of the fields should be left empty.\n';
+        }
+
+        // Validation for names (alphabets only)
+        const namePattern = /^[A-Za-z]+$/;
+        if (!namePattern.test(firstName) || !namePattern.test(lastName)) {
+            errorMessage += 'Names should contain only alphabets.\n';
+        }
+
+        // Validation for mobile number (numeric and 10 digits)
+        const mobilePattern = /^[0-9]{10}$/;
+        if (!mobilePattern.test(mobileNumber)) {
+            errorMessage += 'Mobile number should be numeric and 10 digits long.\n';
+        }
+
+        // Validation for Aadhaar number (12 digits)
+        const aadhaarPattern = /^[0-9]{12}$/;
+        if (!aadhaarPattern.test(aadhaarNumber)) {
+            errorMessage += 'Aadhaar number should be numeric and 12 digits long.\n';
+        }
+
+        // Validation for file uploads (jpg/png and max 1500 kb)
+        const maxSize = 1500 * 1024; // 1500 kb in bytes
+        if (passportPhoto) {
+            const fileExtension = passportPhoto.name.split('.').pop().toLowerCase();
+            if (['jpg', 'png'].indexOf(fileExtension) === -1 || passportPhoto.size > maxSize) {
+                errorMessage += 'Passport photo should be in jpg/png format and less than 1500 kb.\n';
+            }
+        }
+
+        if (aadhaarCard) {
+            const fileExtension = aadhaarCard.name.split('.').pop().toLowerCase();
+            if (['jpg', 'png'].indexOf(fileExtension) === -1 || aadhaarCard.size > maxSize) {
+                errorMessage += 'Aadhaar card should be in jpg/png format and less than 1500 kb.\n';
+            }
+        }
+
+        // Show error message if there are validation errors
+        if (errorMessage) {
+            alert(errorMessage);
+        } else {
+            alert('The registration is successful');
+        }
+    });
+</script>
+
+</body>
+</html>

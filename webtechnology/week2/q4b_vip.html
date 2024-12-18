@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .h1{
+            text-align: center;
+        }
+        body label{
+            margin-left: 100px;
+        }
+        body {
+            background-image: url("vip_img.jpg");
+            background-repeat: no-repeat;
+            background-size:cover ;
+            background-position:70% 50%;
+            opacity: 1;
+            color:black;
+            font-weight: bold; 
+            font-size: larger;   
+        }
+        body input{
+            margin-left: 100px;
+            background-color: transparent;
+            color:black;
+            height:30px;
+            width:500px;
+            border-color: black;
+            border-width: 5px;
+            border-radius: 8px;
+            font-size: large;
+            background-color: rgb(225, 225, 119);
+        }
+        textarea{
+            margin-left: 100px;
+            background-color: transparent;
+            color:black;
+            height:50px;
+            width:500px;
+            border-color: black;
+            border-width: 5px;
+            border-radius: 8px;
+            font-size: large;
+            background-color: rgb(225, 225, 119);
+        }
+        .radio-group {
+            margin-top: 10px;
+        }
+
+        .radio-item {
+            margin-bottom: 10px; 
+        }
+
+        .radio-item input[type="radio"] {
+            margin-right: -90px; 
+            height: 16px;
+            width: 16px;
+        }
+        .radio-item label {
+            margin-right: 400px; 
+            font-weight: normal;
+        }
+        .b{
+            width:100px;
+            height:50px;
+            margin-left:300px;
+            font-weight: bold;
+        }
+        .reset{
+            width:100px;
+            height:50px;
+            font-weight: bold; 
+        }
+        .b:hover,.reset:hover{
+            opacity: 0.5;
+            color:black;
+        }
+    </style>
+</head>
+<div class="body">
+<body>
+    <form id="registrationForm">
+    <h1 class="h1">VIP REGISTRATION FORM</h1>
+    <hr>
+    <label class="name">Full Name:</label><br><input type="text" class="name" placeholder="Enter your name" pattern="[A-Za-z]{3,}" title="More than 3 letters is required" required> <br><br>
+    <label class="email">Email:</label><br><input type="email" placeholder="Enter your email id" title="Invalid email" required><br><br>
+    <label class="number">Mobile Number:</label><br><input type="tel" class="number" pattern="[0-9]{10}" title="Enter a 10 digit number" placeholder="Enter your mobile number" required><br><br>
+    <label class="age">Age:</label><br><input type="number" class="age" placeholder="Enter your age" title="Age in digits" required><br><br>
+    <label class="gender">Gender:</label>
+    <div class="radio-group">
+        <div class="radio-item">
+            <input type="radio" name="gender" value="male" class="g1"> <label>Male</label>
+        </div>
+        <div class="radio-item">
+            <input type="radio" name="gender" value="female" class="g2"> <label>Female</label>
+        </div>
+        <div class="radio-item">
+            <input type="radio" name="gender" value="others" class="g3"> <label>Others</label>
+        </div>
+    </div> <br>
+    <label class="food">Food Type:</label> 
+    <div class="radio-group">
+        <div class="radio-item">
+            <input type="radio" name="food" value="veg" class="f1"> <label>Vegetarian</label>
+        </div>
+        <div class="radio-item">
+            <input type="radio" name="food" value="nonveg" class="f2"> <label>Non-Vegetarian</label>
+        </div>
+        <div class="radio-item">
+            <input type="radio" name="food" value="gluten" class="f3"> <label>Gluten - Free</label>
+        </div>
+    </div> <br>   
+    <label class="add">Address:</label><br><textarea class="add" pattern="[A-Za-z0-9,]" title="Enter the address" required></textarea><br><br>
+    <label class="city">City:</label><br><input type="text" class="city" placeholder="Enter your city" pattern="[A-Za-z]{3,}" title="More than 3 letters is required" required> <br><br>
+    <label class="st">State:</label><br><input type="text" class="st" placeholder="Enter your state" pattern="[A-Za-z]{3,}" title="More than 3 letters is required" required> <br><br>
+    <label class="zip">ZIP Code:</label><br><input type="text" class="zip" placeholder="Enter your ZIP code" pattern="[0-9]{5,6}" title="Enter your valid ZIP code" required> <br><br>
+    <input type="reset" class="reset" value="Reset">
+    <input type="submit" class="b" value="Submit">
+</form>
+
+<script>
+    document.querySelector('#registrationForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    var name = document.querySelector('.name').value;
+    var email = document.querySelector('.email').value;
+    var phone = document.querySelector('.number').value;
+    var age = document.querySelector('.age').value;
+    var gender = document.querySelector('input[name="gender"]:checked').value;
+    var food = document.querySelector('input[name="food"]:checked').value;
+    var dob = document.querySelector('.dob').value;
+    var address = document.querySelector('.add').value;
+    var city = document.querySelector('.city').value;
+    var state = document.querySelector('.st').value;
+    var zip = document.querySelector('.zip').value;
+
+    var alertMessage = 
+        "Form Details:\n" +
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n" +
+        "Phone: " + phone + "\n" +
+        "Age: " + age + "\n" +
+        "Gender: " + gender + "\n" +
+        "Food Preference: " + food + "\n" +
+        "DOB: " + dob + "\n" +
+        "Address: " + address + "\n" +
+        "City: " + city + "\n" +
+        "State: " + state + "\n" +
+        "ZIP Code: " + zip;
+
+    alert(alertMessage);
+});
+</script>
+
+</body>
+</div>
+</html>
